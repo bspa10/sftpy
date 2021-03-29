@@ -15,5 +15,4 @@ for file in /opt/sftpy/py.d/*; do
 done
 unset file
 
-exec /usr/sbin/rsyslogd -n &
-exec /usr/sbin/sshd -D -e
+exec supervisord -c /etc/supervisor/supervisord.conf

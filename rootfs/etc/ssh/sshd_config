@@ -18,4 +18,4 @@ ForceCommand internal-sftp -f AUTH -l INFO
 ChrootDirectory %h
 
 # Enable this for more logs
-LogLevel VERBOSE
+# LogLevel VERBOSE
