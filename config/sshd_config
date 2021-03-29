@@ -1,0 +1,21 @@
+# https://stribika.github.io/2015/01/04/secure-secure-shell.html
+Protocol 2
+HostKey /etc/ssh/ssh_host_ed25519_key
+HostKey /etc/ssh/ssh_host_rsa_key
+
+# https://unix.stackexchange.com/questions/56941/what-is-the-point-of-sshd-usedns-option
+UseDNS no
+
+# Limited access
+PermitRootLogin no
+X11Forwarding no
+AllowTcpForwarding no
+
+# Force sftp and chroot jail
+# https://linuxize.com/post/how-to-set-up-sftp-chroot-jail/
+Subsystem sftp internal-sftp -f AUTH -l INFO
+ForceCommand internal-sftp -f AUTH -l INFO
+ChrootDirectory %h
+
+# Enable this for more logs
+LogLevel VERBOSE
